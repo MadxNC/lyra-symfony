@@ -10,7 +10,7 @@
   <script 
    src="{{ endpoint }}/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js" 
    kr-public-key="{{ publicKey }}" 
-   kr-post-url-success="paid.html">
+   kr-post-url-success="{{ path("successepay") }}">
   </script>
 
     <!-- add google font -->

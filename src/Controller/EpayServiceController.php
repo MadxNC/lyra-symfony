@@ -14,18 +14,29 @@ class EpayServiceController extends AbstractController
     public function epay(EpayService $epay)
     {
 
-        // dd($epay);    
+        // dd($epay);
         return $this->render('epay_service/index.html.twig', [
             'controller_name' => 'EpayServiceController',
-                'publicKey' => $epay->getPublicKey(),
-                'endpoint' => $epay->getEndpoint(),
-                'response' => $epay->createPayment([
-                    "amount" => 01,
-                    "currency" => "EUR",
-                    "orderId" => uniqid("MyOrderId"),
-                    "customer" => ["email" => "joe@doe.nc"],
-                    ]),
+            'publicKey' => $epay->getPublicKey(),
+            'endpoint' => $epay->getEndpoint(),
+            'response' => $epay->createPayment([
+                "amount" => 01,
+                "currency" => "EUR",
+                "orderId" => uniqid("MyOrderId"),
+                "customer" => ["email" => "joe@doe.nc"],
+                ]),
+        ]);
+    }
 
+    /**
+     * @Route("/success", name="successepay")
+     */
+    public function successepay(EpayService $epay)
+    {
+
+        // dd($epay);
+        return $this->render('epay_service/success.html.twig', [
+            'controller_name' => 'EpayServiceController'
         ]);
     }
 }
